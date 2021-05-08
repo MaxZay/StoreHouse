@@ -14,13 +14,14 @@ namespace DAL.Repositories
         public void Add(MedicalBills entity)
         {
             db.Attach(entity.MedicalBillsType);
+            db.Attach(entity.Form);
             db.MedicalBills.Add(entity);
             db.SaveChanges();
         }
 
         public IEnumerable<MedicalBills> GetAll()
         {
-            return db.MedicalBills.Include(t => t.MedicalBillsType).AsNoTracking();
+            return db.MedicalBills.Include(t => t.MedicalBillsType).Include(u => u.Form).AsNoTracking();
         }
 
         public void Remove(MedicalBills entity)

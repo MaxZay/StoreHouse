@@ -9,5 +9,6 @@ namespace BLL.DTOs
         public int Id { get; set; }
         public string Name { get; set; }
         public MedicalBillsTypeDTO MedicalBillsType { get; set; }
+        public FormDTO Form { get; set; }
     }
 }

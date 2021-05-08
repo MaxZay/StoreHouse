@@ -15,15 +15,16 @@ namespace ASP_UI.Models.ViewModels
         [Display(Name = "Название")]
         [StringLength(80,MinimumLength = 3)]
         public string Name { get; set; }
-        [Display(Name = "Количество")]
-        [Range(1, 2000)]
-        [Required(ErrorMessage = "Неверное количество")]
-        public int Quantity { get; set; }
         [Display(Name = "Тип препарата")]
+        [StringLength(80, MinimumLength = 3)]
         //public MedicalBillsTypeDTO MedicalBillsType;
         public string Type { get; set; }
+        [Display(Name = "Форма препарата")]
+        public string Form { get; set; }
 
         public IEnumerable<MedicalBillsTypeDTO> Types;
-        public SelectList DataList { get; set; }
+        public IEnumerable<FormDTO> Forms;
+        public SelectList TypeList { get; set; }
+        public SelectList FormList { get; set; }
     }
 }

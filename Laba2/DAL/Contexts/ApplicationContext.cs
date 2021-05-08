@@ -11,7 +11,7 @@ namespace DAL.Contexts
     {
         public DbSet<MedicalBills> MedicalBills { get; set; }
         public DbSet<MedicalBillsType> MedicalBillsType { get; set; }
-        public DbSet<Form> Forms { get; set; }
+        public DbSet<Form> Form{ get; set; }
         public DbSet<StoreHouse> StoreHouse { get; set; }
 
         public ApplicationContext()
@@ -28,6 +28,11 @@ namespace DAL.Contexts
                 .HasOne<MedicalBillsType>(s => s.MedicalBillsType)
                 .WithMany(g => g.MedicalBills)
                 .HasForeignKey(s => s.MedicalBillsTypeId);
+
+            modelBuilder.Entity<MedicalBills>()
+                .HasOne<Form>(s => s.Form)
+                .WithMany(g => g.MedicalBills)
+                .HasForeignKey(s => s.FormId);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

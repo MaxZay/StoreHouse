@@ -8,7 +8,7 @@ namespace DAL.Entities
 {
     public class MedicalBills
     {
-        //  [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public int MedicalBillsTypeId { get; set; }

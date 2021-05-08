@@ -15,6 +15,7 @@ namespace BLL.DTOs
                 Id = medicalBills.Id,
                 Name = medicalBills.Name,
                 MedicalBillsType = ToDTO(medicalBills.MedicalBillsType),
+                Form = ToDTO(medicalBills.Form)
             };
             return medical;
         }
@@ -26,6 +27,7 @@ namespace BLL.DTOs
                 Id = medicalBillsDTO.Id,
                 Name = medicalBillsDTO.Name,
                 MedicalBillsType = FromDTO(medicalBillsDTO.MedicalBillsType),
+                Form = FromDTO(medicalBillsDTO.Form)
             };
             return medicalBills;
         }

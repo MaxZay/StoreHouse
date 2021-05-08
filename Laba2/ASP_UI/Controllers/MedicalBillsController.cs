@@ -14,21 +14,24 @@ namespace ASP_UI.Controllers
     {
         private readonly IMedicalBillsService _medicalBillsService;
         private readonly IMedicalBillsTypeService _medicalBillsTypeService;
+        private readonly IFormService _formService;
         private readonly List<MedicalBillsDTO> medicalBillsDTOs;
 
         public IActionResult Index()
         {
             return View();
         }
-        public MedicalBillsController(IMedicalBillsService medicalBillsService, IMedicalBillsTypeService medicalBillsTypeService)
+        public MedicalBillsController(IMedicalBillsService medicalBillsService, IMedicalBillsTypeService medicalBillsTypeService, IFormService formService)
         {
             _medicalBillsService = medicalBillsService;
             _medicalBillsTypeService = medicalBillsTypeService;
+            _formService = formService;
             medicalBillsDTOs = _medicalBillsService.GetAll().ToList();
         }
 
         public IActionResult List()
         {
+            
             var bills = _medicalBillsService.GetAll();
             return View(bills);
         }
@@ -37,9 +40,11 @@ namespace ASP_UI.Controllers
         {
             var viewModel = new MedicalBillsViewModel()
             {
-                DataList = new SelectList(_medicalBillsTypeService.GetAll().ToList())
+                TypeList = new SelectList(_medicalBillsTypeService.GetAll().ToList()),
+                FormList = new SelectList(_formService.GetAll().ToList())
             };
             viewModel.Types = _medicalBillsTypeService.GetAll().ToList();
+            viewModel.Forms = _formService.GetAll().ToList();
             return View(viewModel);
         }
 
@@ -51,7 +56,8 @@ namespace ASP_UI.Controllers
                 var bill = new MedicalBillsDTO
                 {
                     Name = medicalBillsViewModel.Name,
-                    MedicalBillsType = _medicalBillsTypeService.GetAll().FirstOrDefault(u => u.Type == medicalBillsViewModel.Type)
+                    MedicalBillsType = _medicalBillsTypeService.GetAll().FirstOrDefault(u => u.Type == medicalBillsViewModel.Type),
+                    Form = _formService.GetAll().FirstOrDefault(u => u.FormName == medicalBillsViewModel.Form)
                 };
                 _medicalBillsService.Add(bill);
                 return RedirectToAction("List");
@@ -86,7 +92,8 @@ namespace ASP_UI.Controllers
             var viewModel = new MedicalBillsViewModel()
             {
                 Id = id,
-                DataList = new SelectList(_medicalBillsTypeService.GetAll().ToList())
+                TypeList = new SelectList(_medicalBillsTypeService.GetAll().ToList()),
+                FormList = new SelectList(_formService.GetAll().ToList())
             };
             viewModel.Types = _medicalBillsTypeService.GetAll().ToList();
             var med = _medicalBillsService.GetAll().FirstOrDefault(u => u.Id == id);
@@ -103,7 +110,8 @@ namespace ASP_UI.Controllers
                 {
                     Id = _medicalBillsService.GetAll().FirstOrDefault(u => u.Id == medicalBillsViewModel.Id).Id,
                     Name = medicalBillsViewModel.Name,
-                    MedicalBillsType = _medicalBillsTypeService.GetAll().FirstOrDefault(u => u.Type == medicalBillsViewModel.Type)
+                    MedicalBillsType = _medicalBillsTypeService.GetAll().FirstOrDefault(u => u.Type == medicalBillsViewModel.Type),
+                    Form = _formService.GetAll().FirstOrDefault(u => u.FormName == medicalBillsViewModel.Form)
                 };
                 _medicalBillsService.Update(dTO);
                 return RedirectToAction("List");
