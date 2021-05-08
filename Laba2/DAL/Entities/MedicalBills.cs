@@ -15,5 +15,6 @@ namespace DAL.Entities
         public MedicalBillsType MedicalBillsType { get; set; }
         public int FormId { get; set; }
         public Form Form { get; set; }
+        public ICollection<StoreHouse> StoreHouses { get; set; }
     }
 }

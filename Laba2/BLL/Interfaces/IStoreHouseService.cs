@@ -6,7 +6,7 @@ using DAL.Entities;
 
 namespace BLL.Interfaces
 {
-    interface IStoreHouseService : IService<StoreHouseDTO, StoreHouse>
+    public interface IStoreHouseService : IService<StoreHouseDTO, StoreHouse>
     {
     }
 }

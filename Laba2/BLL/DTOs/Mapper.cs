@@ -77,7 +77,7 @@ namespace BLL.DTOs
             StoreHouseDTO f = new StoreHouseDTO
             {
                 Id = storeHouse.Id,
-                DateOfManufacturer = storeHouse.DateOfManufacturer,
+                DateOfManufacture = storeHouse.DateOfManufacture,
                 ShelfLife = storeHouse.ShelfLife,
                 MedicalBills = ToDTO(storeHouse.MedicalBills)
             };
@@ -89,7 +89,7 @@ namespace BLL.DTOs
             StoreHouse f = new StoreHouse
             {
                 Id = storeHouse.Id,
-                DateOfManufacturer = storeHouse.DateOfManufacturer,
+                DateOfManufacture = storeHouse.DateOfManufacture,
                 ShelfLife = storeHouse.ShelfLife,
                 MedicalBills = FromDTO(storeHouse.MedicalBills)
             };

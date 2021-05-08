@@ -37,7 +37,7 @@ namespace DAL.Repositories
             house.MedicalBillId = entity.MedicalBillId;
             house.MedicalBills = entity.MedicalBills;
             house.ShelfLife = entity.ShelfLife;
-            house.DateOfManufacturer = entity.DateOfManufacturer;
+            house.DateOfManufacture = entity.DateOfManufacture;
             db.SaveChanges();
         }
     }

@@ -9,7 +9,7 @@ namespace BLL.DTOs
     {
         public int Id { get; set; }
         public MedicalBillsDTO MedicalBills { get; set; }
-        public DateTime DateOfManufacturer { get; set; }
+        public DateTime DateOfManufacture { get; set; }
         public DateTime ShelfLife { get; set; }
     }
 }

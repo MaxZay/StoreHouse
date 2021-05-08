@@ -15,7 +15,6 @@ namespace ASP_UI.Controllers
         private readonly IMedicalBillsService _medicalBillsService;
         private readonly IMedicalBillsTypeService _medicalBillsTypeService;
         private readonly IFormService _formService;
-        private readonly List<MedicalBillsDTO> medicalBillsDTOs;
 
         public IActionResult Index()
         {
@@ -26,7 +25,6 @@ namespace ASP_UI.Controllers
             _medicalBillsService = medicalBillsService;
             _medicalBillsTypeService = medicalBillsTypeService;
             _formService = formService;
-            medicalBillsDTOs = _medicalBillsService.GetAll().ToList();
         }
 
         public IActionResult List()

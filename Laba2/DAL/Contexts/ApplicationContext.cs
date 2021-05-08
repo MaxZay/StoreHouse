@@ -33,6 +33,11 @@ namespace DAL.Contexts
                 .HasOne<Form>(s => s.Form)
                 .WithMany(g => g.MedicalBills)
                 .HasForeignKey(s => s.FormId);
+
+            modelBuilder.Entity<StoreHouse>()
+                .HasOne<MedicalBills>(s => s.MedicalBills)
+                .WithMany(s => s.StoreHouses)
+                .HasForeignKey(s => s.MedicalBillId);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
