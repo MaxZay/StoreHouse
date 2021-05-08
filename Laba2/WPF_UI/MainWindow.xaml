@@ -1,0 +1,46 @@
+﻿<Window x:Class="WPF_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1100">
+    <Grid>
+        <Button x:Name="medicalBillsButton" Click="medicalBillsButton_Click" Content="Препараты" FontSize="18" HorizontalAlignment="Left" Margin="68,79,0,0" VerticalAlignment="Top" Height="36" Width="172"/>
+        <Button x:Name="manufacturerButton" Click="manufacturerButton_Click" Content="Производитель"  FontSize="18" HorizontalAlignment="Left" Margin="68,189,0,0" VerticalAlignment="Top" Height="36" Width="172"/>
+        <Button x:Name="medicalBillsTypeButton" Click="medicalBillsTypeButton_Click" Content="Типы препаратов"  FontSize="18" HorizontalAlignment="Left" Margin="68,292,0,0" VerticalAlignment="Top" Height="36" Width="172"/>
+        <Grid Name="medicalBillsGrid" Margin="350,10,10,10">
+            <DataGrid x:Name="medicalBillsDataGrid" Height="220" 
+                      SelectionChanged="medicalBillsDataGrid_SelectionChanged" ColumnWidth="*"
+                      AutoGenerateColumns="False" VerticalAlignment="Top">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Тип препарата" Binding="{Binding Path=MedicalBillsType.Type}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Количество" Binding="{Binding Path=Quantity}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock HorizontalAlignment="Left" Margin="30,250,0,0" Text="Название" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="30,300,0,0" Text="Количество" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="30,350,0,0" Text="Id производителя" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="30,400,0,0" Text="Id типа" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="30,450,0,0" Text="Дата производства" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="30,500,0,0" Text="Срок годности" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="medNameTextBox" HorizontalAlignment="Left" Margin="190,246,0,0" VerticalContentAlignment="Center" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30" RenderTransformOrigin="0.667,0.615"/>
+            <TextBox x:Name="medQuantityTextBox" HorizontalAlignment="Left" Margin="190,296,0,0" VerticalContentAlignment="Center" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30" RenderTransformOrigin="0.667,0.615"/>
+            <TextBox x:Name="medManufacturerTextBox" HorizontalAlignment="Left" Margin="190,346,0,0" VerticalContentAlignment="Center" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30" RenderTransformOrigin="0.667,0.615"/>
+            <TextBox x:Name="medTypeTextBox" HorizontalAlignment="Left" Margin="190,396,0,0" VerticalContentAlignment="Center" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30" RenderTransformOrigin="0.667,0.615"/>
+            <DatePicker Name="medDateOfManufacturePicker" HorizontalAlignment="Left" Margin="190,450,0,0" Width="200" VerticalAlignment="Top"/>
+            <DatePicker Name="medExpirationDatePicker" HorizontalAlignment="Left" Margin="190,500,0,0" Width="200" VerticalAlignment="Top"/>
+            <Button Name="medAddButton" Content="Добавить" Click="medAddButton_Click" FontSize="16" HorizontalAlignment="Left" Margin="525,318,0,0" VerticalAlignment="Top" Width="135" Height="31"/>
+            <Button Name="medDeleteButton" Click="medDeleteButton_Click" Content="Удалить" FontSize="16" HorizontalAlignment="Left" Margin="525,388,0,0" VerticalAlignment="Top" Width="135" Height="31"/>
+            <Button Name="medUpdateButton" Content="Обновить" Click="medUpdateButton_Click" FontSize="16" HorizontalAlignment="Left" Margin="525,458,0,0" VerticalAlignment="Top" Width="135" Height="31"/>
+
+
+
+        </Grid>
+        <Grid Name="manufacturerGrid" Margin="350,10,10,10" Background="Yellow" Visibility="Hidden"/>
+        <Grid Name="medicalBillsTypeGrid" Margin="350,10,10,10" Background="Green" Visibility="Hidden"/>
+
+    </Grid>
+</Window>

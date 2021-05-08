@@ -1,0 +1,56 @@
+﻿ @model IEnumerable<BLL.DTOs.MedicalBillsDTO>
+
+@{
+    ViewData["Title"] = "List";
+}
+@*<h1>Список препаратов</h1>
+<div class="row mt-5 mb-2">
+    @{ 
+        foreach(var bill in Model)
+        {
+        <div class="col-lg-4">
+            <h2>@bill.Name</h2>
+            <h4>@bill.MedicalBillsType.Type</h4>
+            <h4>@bill.Quantity</h4>
+            <p><a class="btn btn-warning" href="#">Подробнее</a></p>
+        </div>
+        }
+    }
+
+</div>*@
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalBillsType.Type)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicalBillsType.Type)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.Id">Edit</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

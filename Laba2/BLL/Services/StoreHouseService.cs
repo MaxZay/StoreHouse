@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using BLL.Interfaces;
+using DAL.Entities;
+using BLL.DTOs;
+using DAL.Interfaces;
+
+namespace BLL.Services
+{
+    public class StoreHouseService : IStoreHouseService
+    {
+        private readonly IStoreHouse _repository;
+
+        public StoreHouseService(IStoreHouse storeHouse)
+        {
+            _repository = storeHouse;
+        }
+        public void Add(StoreHouseDTO entity)
+        {
+            _repository.Add(Mapper.FromDTO(entity));
+        }
+
+        public IEnumerable<StoreHouseDTO> GetAll()
+        {
+            var house = _repository.GetAll();
+            List<StoreHouseDTO> list = new List<StoreHouseDTO>();
+            foreach (StoreHouse mb in house)
+            {
+                list.Add(Mapper.ToDTO(mb));
+            }
+            return list;
+        }
+
+        public void Remove(StoreHouseDTO entity)
+        {
+            _repository.Remove(Mapper.FromDTO(entity));
+        }
+
+        public void Update(StoreHouseDTO entity)
+        {
+            _repository.Update(Mapper.FromDTO(entity));
+        }
+    }
+}
