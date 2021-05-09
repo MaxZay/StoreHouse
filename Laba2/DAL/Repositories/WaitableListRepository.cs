@@ -9,30 +9,30 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories
 {
-    public class StoreHouseRepository : IStoreHouse
+    public class WaitableListRepository : IWaitableList
     {
         ApplicationContext db = new ApplicationContext();
-        public void Add(StoreHouse entity)
+        public void Add(WaitableList entity)
         {
             db.Attach(entity);
-            db.StoreHouse.Add(entity);
+            db.WaitableList.Add(entity);
             db.SaveChanges();
         }
 
-        public IEnumerable<StoreHouse> GetAll()
+        public IEnumerable<WaitableList> GetAll()
         {
-            return db.StoreHouse.Include(u => u.MedicalBills).AsNoTracking();
+            return db.WaitableList.Include(u => u.MedicalBills).AsNoTracking();
         }
 
-        public void Remove(StoreHouse entity)
+        public void Remove(WaitableList entity)
         {
-            db.StoreHouse.Remove(db.StoreHouse.FirstOrDefault(u => u.Id == entity.Id));
+            db.WaitableList.Remove(db.WaitableList.FirstOrDefault(u => u.Id == entity.Id));
             db.SaveChanges();
         }
 
-        public void Update(StoreHouse entity)
+        public void Update(WaitableList entity)
         {
-            var house = db.StoreHouse.FirstOrDefault(u => u.Id == entity.Id);
+            var house = db.WaitableList.FirstOrDefault(u => u.Id == entity.Id);
             house.MedicalBillId = entity.MedicalBillId;
             house.MedicalBills = entity.MedicalBills;
             house.ShelfLife = entity.ShelfLife;

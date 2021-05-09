@@ -14,6 +14,8 @@ namespace BLL
             services.AddTransient<IMedicalBillsTypeService, MedicalBillsTypeService>();
             services.AddTransient<IFormService, FormService>();
             services.AddTransient<IStoreHouseService, StoreHouseService>();
+            services.AddTransient<IWaitableListService, WaitableListService>();
+            services.AddTransient<IWriteOfListService, WriteOfListService>();
         }
     }
 }

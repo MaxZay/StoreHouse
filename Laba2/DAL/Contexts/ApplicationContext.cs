@@ -13,6 +13,8 @@ namespace DAL.Contexts
         public DbSet<MedicalBillsType> MedicalBillsType { get; set; }
         public DbSet<Form> Form{ get; set; }
         public DbSet<StoreHouse> StoreHouse { get; set; }
+        public DbSet<WriteOfList> WriteOfList { get; set; }
+        public DbSet<WaitableList> WaitableList { get; set; }
 
         public ApplicationContext()
         {

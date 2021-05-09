@@ -18,6 +18,8 @@ namespace DAL
             services.AddTransient<IMedicalBillsType, MedicalBillsTypeRepository>();
             services.AddTransient<IForm, FormRepository>();
             services.AddTransient<IStoreHouse, StoreHouseRepository>();
+            services.AddTransient<IWaitableList, WaitableListRepository>();
+            services.AddTransient<IWriteOfList, WriteOfListRepository>();
         }
     }
 }

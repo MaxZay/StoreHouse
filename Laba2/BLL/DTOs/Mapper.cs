@@ -95,5 +95,53 @@ namespace BLL.DTOs
             };
             return f;
         }
+
+        public static WaitableListDTO ToDTO(WaitableList storeHouse)
+        {
+            WaitableListDTO f = new WaitableListDTO
+            {
+                Id = storeHouse.Id,
+                DateOfManufacture = storeHouse.DateOfManufacture,
+                ShelfLife = storeHouse.ShelfLife,
+                MedicalBills = ToDTO(storeHouse.MedicalBills)
+            };
+            return f;
+        }
+
+        public static WaitableList FromDTO(WaitableListDTO storeHouse)
+        {
+            WaitableList f = new WaitableList
+            {
+                Id = storeHouse.Id,
+                DateOfManufacture = storeHouse.DateOfManufacture,
+                ShelfLife = storeHouse.ShelfLife,
+                MedicalBills = FromDTO(storeHouse.MedicalBills)
+            };
+            return f;
+        }
+
+        public static WriteOfListDTO ToDTO(WriteOfList storeHouse)
+        {
+            WriteOfListDTO f = new WriteOfListDTO
+            {
+                Id = storeHouse.Id,
+                DateOfManufacture = storeHouse.DateOfManufacture,
+                ShelfLife = storeHouse.ShelfLife,
+                MedicalBills = ToDTO(storeHouse.MedicalBills)
+            };
+            return f;
+        }
+
+        public static WriteOfList FromDTO(WriteOfListDTO storeHouse)
+        {
+            WriteOfList f = new WriteOfList
+            {
+                Id = storeHouse.Id,
+                DateOfManufacture = storeHouse.DateOfManufacture,
+                ShelfLife = storeHouse.ShelfLife,
+                MedicalBills = FromDTO(storeHouse.MedicalBills)
+            };
+            return f;
+        }
     }
 }

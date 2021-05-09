@@ -1,38 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using DAL.Contexts;
-using DAL.Entities;
 using DAL.Interfaces;
+using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
+using DAL.Contexts;
+using System.Linq;
 
 namespace DAL.Repositories
 {
-    public class StoreHouseRepository : IStoreHouse
+    public class WriteOfListRepository : IWriteOfList
     {
         ApplicationContext db = new ApplicationContext();
-        public void Add(StoreHouse entity)
+        public void Add(WriteOfList entity)
         {
             db.Attach(entity);
-            db.StoreHouse.Add(entity);
+            db.WriteOfList.Add(entity);
             db.SaveChanges();
         }
 
-        public IEnumerable<StoreHouse> GetAll()
+        public IEnumerable<WriteOfList> GetAll()
         {
-            return db.StoreHouse.Include(u => u.MedicalBills).AsNoTracking();
+            return db.WriteOfList.Include(u => u.MedicalBills).AsNoTracking();
         }
 
-        public void Remove(StoreHouse entity)
+        public void Remove(WriteOfList entity)
         {
-            db.StoreHouse.Remove(db.StoreHouse.FirstOrDefault(u => u.Id == entity.Id));
+            db.WriteOfList.Remove(db.WriteOfList.FirstOrDefault(u => u.Id == entity.Id));
             db.SaveChanges();
         }
 
-        public void Update(StoreHouse entity)
+        public void Update(WriteOfList entity)
         {
-            var house = db.StoreHouse.FirstOrDefault(u => u.Id == entity.Id);
+            var house = db.WriteOfList.FirstOrDefault(u => u.Id == entity.Id);
             house.MedicalBillId = entity.MedicalBillId;
             house.MedicalBills = entity.MedicalBills;
             house.ShelfLife = entity.ShelfLife;
