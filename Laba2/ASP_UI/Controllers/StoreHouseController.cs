@@ -57,9 +57,59 @@ namespace ASP_UI.Controllers
             var viewModel = new StoreHouseViewModel
             {
                 TypeList = new SelectList(_medicalBillsTypeService.GetAll().ToList()),
-                FormList = new SelectList(_formService.GetAll().ToList())
+                FormList = new SelectList(_formService.GetAll().ToList()),
+                MedicalBills = new SelectList(_medicalBillsService.GetAll())
             };
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Create(StoreHouseViewModel storeHouse)
+        {
+            if (ModelState.IsValid)
+            {
+                var store = new StoreHouseDTO
+                {
+                    DateOfManufacture = storeHouse.DateOfManufacture,
+                    ShelfLife = storeHouse.ShelfLife,
+                    MedicalBills = _medicalBillsService.GetAll().FirstOrDefault(u => u.Name == storeHouse.Name)
+                };
+                _storeHouseServices.Add(store);
+                return RedirectToAction("List");
+            }
+            return View();
+        }
+
+        public IActionResult Delete(int id)
+        {
+            StoreHouseDTO store = _storeHouseServices.GetAll().FirstOrDefault(u => u.Id == id);
+            StoreHouseViewModel modelViewModel = new StoreHouseViewModel
+            {
+                Id = store.Id,
+                Name = store.MedicalBills.Name,
+                Type = store.MedicalBills.MedicalBillsType.Type,
+                Form = store.MedicalBills.Form.FormName,
+                Quantity = 1
+            };
+            return View(modelViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(StoreHouseViewModel storeHouseViewModel)
+        {
+            try
+            {
+                List<StoreHouseDTO> store = _storeHouseServices.GetAll().ToList();
+                for (int i = 0; i < storeHouseViewModel.Quantity; i++)
+                {
+                    _storeHouseServices.Remove(store[i]);
+                }
+                return RedirectToAction("List");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

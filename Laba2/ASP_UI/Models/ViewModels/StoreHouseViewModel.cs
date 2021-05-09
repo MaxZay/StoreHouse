@@ -19,6 +19,8 @@ namespace ASP_UI.Models.ViewModels
         [Display(Name = "Название")]
         [StringLength(80, MinimumLength = 3)]
         public string Form { get; set; }
+
+        [Display(Name = "Количество")]
         public int Quantity { get; set; }
 
         [Display(Name = "Дата производства")]
@@ -26,6 +28,7 @@ namespace ASP_UI.Models.ViewModels
         [Display(Name = "Срок годности")]
         public DateTime ShelfLife { get; set; }
 
+        public SelectList MedicalBills{ get; set; }
         public SelectList TypeList { get; set; }
         public SelectList FormList { get; set; }
     }

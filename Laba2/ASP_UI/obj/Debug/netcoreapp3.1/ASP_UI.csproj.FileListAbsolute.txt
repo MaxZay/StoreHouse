@@ -163,3 +163,5 @@ C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\MedicalBills\Delete.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\MedicalBills\Edit.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\StoreHouse\List.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\StoreHouse\Create.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\StoreHouse\Delete.cshtml.g.cs

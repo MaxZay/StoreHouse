@@ -10,5 +10,10 @@ namespace BLL.DTOs
         public string Name { get; set; }
         public MedicalBillsTypeDTO MedicalBillsType { get; set; }
         public FormDTO Form { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
