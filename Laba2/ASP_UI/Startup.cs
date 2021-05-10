@@ -13,6 +13,9 @@ using Microsoft.AspNetCore.Http;
 using BLL;
 using BLL.Interfaces;
 using BLL.Services;
+using ASP_UI.Models.Identiy;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace ASP_UI
 {
@@ -28,6 +31,13 @@ namespace ASP_UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<ApplicationContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationContext>();
+
             services.ConfigureBllServices(Configuration.GetConnectionString("DefaultConnection"));
 
         //    services.AddTransient<IMedicalBillsService, MedicalBillsService>();
@@ -55,6 +65,7 @@ namespace ASP_UI
 
             app.UseRouting();
 
+            app.UseAuthentication();    // подключение аутентификации
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

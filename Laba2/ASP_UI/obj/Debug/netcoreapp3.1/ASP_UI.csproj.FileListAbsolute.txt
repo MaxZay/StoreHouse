@@ -156,8 +156,6 @@ C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\bin\Debug\netcoreapp
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\ASP_UI.csproj.CoreCompileInputs.cache
-C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\ASP_UI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\MedicalBills\List.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\MedicalBills\Create.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\MedicalBills\Delete.cshtml.g.cs
@@ -169,3 +167,11 @@ C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\WaitableList\List.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\WaitableList\Create.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\WaitableList\Delete.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\ASP_UI.csproj.CoreCompileInputs.cache
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\ASP_UI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Identity\Account\Register.cshtml.g.cs
