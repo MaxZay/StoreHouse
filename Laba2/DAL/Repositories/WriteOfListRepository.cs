@@ -15,7 +15,7 @@ namespace DAL.Repositories
         public void Add(WriteOfList entity)
         {
             db.Attach(entity);
-            db.WriteOfList.Add(entity);
+            db.WriteOfList.Add(entity);      
             db.SaveChanges();
         }
 

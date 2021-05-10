@@ -16,5 +16,7 @@ namespace DAL.Entities
         public int FormId { get; set; }
         public Form Form { get; set; }
         public ICollection<StoreHouse> StoreHouses { get; set; }
+        public ICollection<WriteOfList> WriteOfLists { get; set; }
+        public ICollection<WaitableList> WaitableLists { get; set; }
     }
 }

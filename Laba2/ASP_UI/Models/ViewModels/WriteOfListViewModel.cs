@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ASP_UI.Models.ViewModels
 {
-    public class StoreHouseViewModel
+    public class WriteOfListViewModel
     {
         public int Id { get; set; }
         [Display(Name = "Название")]
@@ -25,7 +25,7 @@ namespace ASP_UI.Models.ViewModels
         [Display(Name = "Срок годности")]
         public DateTime ShelfLife { get; set; }
 
-        public SelectList MedicalBills{ get; set; }
+        public SelectList MedicalBills { get; set; }
         public SelectList TypeList { get; set; }
         public SelectList FormList { get; set; }
     }

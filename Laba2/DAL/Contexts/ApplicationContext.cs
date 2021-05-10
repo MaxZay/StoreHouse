@@ -40,6 +40,18 @@ namespace DAL.Contexts
                 .HasOne<MedicalBills>(s => s.MedicalBills)
                 .WithMany(s => s.StoreHouses)
                 .HasForeignKey(s => s.MedicalBillId);
+
+            modelBuilder.Entity<WriteOfList>()
+               .HasOne<MedicalBills>(s => s.MedicalBills)
+               .WithMany(s => s.WriteOfLists)
+               .HasForeignKey(s => s.MedicalBillId);
+
+            modelBuilder.Entity<WaitableList>()
+              .HasOne<MedicalBills>(s => s.MedicalBills)
+              .WithMany(s => s.WaitableLists)
+              .HasForeignKey(s => s.MedicalBillId);
+
+            modelBuilder.Entity<WriteOfList>().HasKey(c => new { c.MedicalBillId, c.Id });
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

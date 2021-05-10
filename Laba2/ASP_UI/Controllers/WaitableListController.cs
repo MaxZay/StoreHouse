@@ -8,38 +8,39 @@ using BLL.Interfaces;
 using ASP_UI.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+
 namespace ASP_UI.Controllers
 {
-    public class StoreHouseController : Controller
+    public class WaitableListController : Controller
     {
         private readonly IMedicalBillsService _medicalBillsService;
         private readonly IMedicalBillsTypeService _medicalBillsTypeService;
         private readonly IFormService _formService;
         private readonly IStoreHouseService _storeHouseServices;
-        private readonly IWriteOfListService _writeOfListService;
+        private readonly IWaitableListService _waitableListService;
         public IActionResult Index()
         {
             return View();
         }
 
-        public StoreHouseController(IMedicalBillsService medicalBillsService, IMedicalBillsTypeService medicalBillsTypeService, IFormService formService, IStoreHouseService storeHouseService, IWriteOfListService writeOfListService)
+        public WaitableListController(IMedicalBillsService medicalBillsService, IMedicalBillsTypeService medicalBillsTypeService, IFormService formService, IStoreHouseService storeHouseService, IWaitableListService waitableList)
         {
             _medicalBillsService = medicalBillsService;
             _medicalBillsTypeService = medicalBillsTypeService;
             _formService = formService;
             _storeHouseServices = storeHouseService;
-            _writeOfListService = writeOfListService;
+            _waitableListService = waitableList;
         }
 
         public IActionResult List()
         {
-            List<StoreHouseViewModel> storeViewModel = new List<StoreHouseViewModel>();
-            var store = _storeHouseServices.GetAll();
-            foreach(StoreHouseDTO un in store)
+            List<WaitableListViewModel> waitableListViewModels = new List<WaitableListViewModel>();
+            var store = _waitableListService.GetAll();
+            foreach (WaitableListDTO un in store)
             {
-                if (!storeViewModel.Select(u => u.Name).Contains(un.MedicalBills.Name))
+                if (!waitableListViewModels.Select(u => u.Name).Contains(un.MedicalBills.Name))
                 {
-                    StoreHouseViewModel model = new StoreHouseViewModel
+                    WaitableListViewModel model = new WaitableListViewModel
                     {
                         Id = un.Id,
                         Name = un.MedicalBills.Name,
@@ -47,16 +48,16 @@ namespace ASP_UI.Controllers
                         Form = un.MedicalBills.Form.FormName,
                         Quantity = store.Where(u => u.MedicalBills.Id == un.MedicalBills.Id).Count()
                     };
-                    storeViewModel.Add(model);
+                    waitableListViewModels.Add(model);
                 }
             }
-          
-            return View(storeViewModel);
+
+            return View(waitableListViewModels);
         }
 
         public IActionResult Create()
         {
-            var viewModel = new StoreHouseViewModel
+            var viewModel = new WaitableListViewModel
             {
                 TypeList = new SelectList(_medicalBillsTypeService.GetAll().ToList()),
                 FormList = new SelectList(_formService.GetAll().ToList()),
@@ -66,17 +67,17 @@ namespace ASP_UI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(StoreHouseViewModel storeHouse)
+        public IActionResult Create(WaitableListViewModel waitableList)
         {
             if (ModelState.IsValid)
             {
-                var store = new StoreHouseDTO
+                var list = new WaitableListDTO
                 {
-                    DateOfManufacture = storeHouse.DateOfManufacture,
-                    ShelfLife = storeHouse.ShelfLife,
-                    MedicalBills = _medicalBillsService.GetAll().FirstOrDefault(u => u.Name == storeHouse.Name)
+                    DateOfManufacture = waitableList.DateOfManufacture,
+                    ShelfLife = waitableList.ShelfLife,
+                    MedicalBills = _medicalBillsService.GetAll().FirstOrDefault(u => u.Name == waitableList.Name)
                 };
-                _storeHouseServices.Add(store);
+                _waitableListService.Add(list);
                 return RedirectToAction("List");
             }
             return View();
@@ -84,29 +85,18 @@ namespace ASP_UI.Controllers
 
         public IActionResult Delete(int id)
         {
-            StoreHouseDTO store = _storeHouseServices.GetAll().FirstOrDefault(u => u.Id == id);
-            StoreHouseViewModel modelViewModel = new StoreHouseViewModel
-            {
-                Id = store.Id,
-                Name = store.MedicalBills.Name,
-                Type = store.MedicalBills.MedicalBillsType.Type,
-                Form = store.MedicalBills.Form.FormName,
-                Quantity = 1
-            };
-            return View(modelViewModel);
+            WaitableListDTO wait = _waitableListService.GetAll().FirstOrDefault(u => u.Id == id);
+            return View(wait);
         }
 
         [HttpPost]
-        public IActionResult Delete(StoreHouseViewModel storeHouseViewModel)
+        public IActionResult Delete(WaitableListDTO dTO)
         {
             try
             {
-                List<StoreHouseDTO> store = _storeHouseServices.GetAll().ToList();
-                for (int i = 0; i < storeHouseViewModel.Quantity; i++)
-                {
-                    //     _storeHouseServices.Remove(store[i]);
-                    _writeOfListService.Add(ConvertTo(store[i]));
-                }
+                WaitableListDTO list = _waitableListService.GetAll().FirstOrDefault(u => u.Id == dTO.Id);
+                _waitableListService.Remove(list);
+                _storeHouseServices.Add(ConvertTo(list));
                 return RedirectToAction("List");
             }
             catch
@@ -115,10 +105,9 @@ namespace ASP_UI.Controllers
             }
         }
 
-
-        private WriteOfListDTO ConvertTo(StoreHouseDTO storeHouseDTO)
+        private StoreHouseDTO ConvertTo(WaitableListDTO storeHouseDTO)
         {
-            WriteOfListDTO writeOfList = new WriteOfListDTO
+            StoreHouseDTO writeOfList = new StoreHouseDTO
             {
                 MedicalBills = storeHouseDTO.MedicalBills,
                 DateOfManufacture = storeHouseDTO.DateOfManufacture,
@@ -126,5 +115,7 @@ namespace ASP_UI.Controllers
             };
             return writeOfList;
         }
+
+
     }
 }

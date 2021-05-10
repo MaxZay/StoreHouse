@@ -165,3 +165,7 @@ C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\StoreHouse\List.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\StoreHouse\Create.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\StoreHouse\Delete.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\WriteOfList\List.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\WaitableList\List.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\WaitableList\Create.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\WaitableList\Delete.cshtml.g.cs
