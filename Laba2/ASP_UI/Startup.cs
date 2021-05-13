@@ -32,11 +32,11 @@ namespace ASP_UI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<ApplicationContext>(options =>
+            services.AddDbContext<IdentityContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationContext>();
+                .AddEntityFrameworkStores<IdentityContext>();
 
             services.ConfigureBllServices(Configuration.GetConnectionString("DefaultConnection"));
 

@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ASP_UI.Models.Identiy
 {
-    public class ApplicationContext : IdentityDbContext<User>
+    public class IdentityContext : IdentityDbContext<User>
     {
-        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+        public IdentityContext(DbContextOptions<IdentityContext> options)
             : base(options)
         {
             Database.EnsureCreated();

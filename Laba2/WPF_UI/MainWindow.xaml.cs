@@ -75,13 +75,13 @@ namespace WPF_UI
         {
             if (medicalBillsDataGrid.SelectedItem != null)
             {
-                MedicalBillsDTO row = (MedicalBillsDTO)medicalBillsDataGrid.SelectedItem;
-                medNameTextBox.Text = row.Name;
-                medQuantityTextBox.Text = row.Quantity.ToString();
-                medTypeTextBox.Text = row.MedicalBillsType.Type;
-                medManufacturerTextBox.Text = row.ManufactureId.ToString();
-                medDateOfManufacturePicker.SelectedDate = row.DateOfManufacture;
-                medExpirationDatePicker.SelectedDate = row.ExpirationDate;
+                //MedicalBillsDTO row = (MedicalBillsDTO)medicalBillsDataGrid.SelectedItem;
+                //medNameTextBox.Text = row.Name;
+                //medQuantityTextBox.Text = row.Quantity.ToString();
+                //medTypeTextBox.Text = row.MedicalBillsType.Type;
+                //medManufacturerTextBox.Text = row.ManufactureId.ToString();
+                //medDateOfManufacturePicker.SelectedDate = row.DateOfManufacture;
+                //medExpirationDatePicker.SelectedDate = row.ExpirationDate;
             }
         }
 
@@ -91,11 +91,11 @@ namespace WPF_UI
             MedicalBillsDTO med = new MedicalBillsDTO
             {
                 Name = medNameTextBox.Text,
-                Quantity = int.Parse(medQuantityTextBox.Text),
-                ManufactureId = int.Parse(medManufacturerTextBox.Text),
-        //        MedicalBillsType = int.Parse(medTypeTextBox.Text),
-                DateOfManufacture = (DateTime)medDateOfManufacturePicker.SelectedDate,
-                ExpirationDate = (DateTime)medExpirationDatePicker.SelectedDate
+        //        Quantity = int.Parse(medQuantityTextBox.Text),
+        //        ManufactureId = int.Parse(medManufacturerTextBox.Text),
+        ////        MedicalBillsType = int.Parse(medTypeTextBox.Text),
+        //        DateOfManufacture = (DateTime)medDateOfManufacturePicker.SelectedDate,
+        //        ExpirationDate = (DateTime)medExpirationDatePicker.SelectedDate
             };
             MedicalBillsDTO elem = _medicalBillsService.GetAll().Last();
             dTO.Id = elem.MedicalBillsType.Id;
@@ -126,11 +126,11 @@ namespace WPF_UI
                 MedicalBillsDTO selected = (MedicalBillsDTO)medicalBillsDataGrid.SelectedItem;
                 MedicalBillsDTO med = new MedicalBillsDTO
                 {
-                    Name = medNameTextBox.Text,
-                    Quantity = int.Parse(medQuantityTextBox.Text),
-                    ManufactureId = int.Parse(medManufacturerTextBox.Text),
-                    DateOfManufacture = (DateTime)medDateOfManufacturePicker.SelectedDate,
-                    ExpirationDate = (DateTime)medExpirationDatePicker.SelectedDate
+                    //Name = medNameTextBox.Text,
+                    //Quantity = int.Parse(medQuantityTextBox.Text),
+                    //ManufactureId = int.Parse(medManufacturerTextBox.Text),
+                    //DateOfManufacture = (DateTime)medDateOfManufacturePicker.SelectedDate,
+                    //ExpirationDate = (DateTime)medExpirationDatePicker.SelectedDate
                 };
                 MedicalBillsDTO elem = _medicalBillsService.GetAll().Last();
                 dTO.Id = elem.MedicalBillsType.Id;

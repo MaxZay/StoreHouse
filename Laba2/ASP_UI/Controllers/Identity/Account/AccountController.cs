@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASP_UI.Models.Identity.ViewModel;
 using ASP_UI.Models.Identiy;
 using ASP_UI.Models.Identiy.ViewModel;
 using Microsoft.AspNetCore.Identity;
@@ -37,7 +38,7 @@ namespace ASP_UI.Controllers.Identity
                 {
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("List", "MedicalBills");
                 }
                 else
                 {
@@ -48,8 +49,49 @@ namespace ASP_UI.Controllers.Identity
                 }
             }
             return View(model);
+        }
 
+        [HttpGet]
+        public IActionResult Login(string returnUrl = null)
+        {
+            return View(new LoginViewModel { ReturnUrl = returnUrl });
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result =
+                    await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                if (result.Succeeded)
+                {
+                    // проверяем, принадлежит ли URL приложению
+                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                    {
+                        return Redirect(model.ReturnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("List", "MedicalBills");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+                }
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            // удаляем аутентификационные куки
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("List", "MedicalBills");
         }
     }
 }
