@@ -180,3 +180,4 @@ C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Users\List.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Users\Create.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Users\Edit.cshtml.g.cs

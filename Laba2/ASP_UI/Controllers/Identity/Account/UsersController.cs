@@ -69,13 +69,21 @@ namespace ASP_UI.Controllers.Identity.Account
                 User user = await _userManager.FindByIdAsync(model.Id);
                 if (user != null)
                 {
-                    user.Email = model.Email;
-                    user.UserName = model.Email;
-                    user.Year = model.Year;
+                    var _passwordValidator =
+                        HttpContext.RequestServices.GetService(typeof(IPasswordValidator<User>)) as IPasswordValidator<User>;
+                    var _passwordHasher =
+                        HttpContext.RequestServices.GetService(typeof(IPasswordHasher<User>)) as IPasswordHasher<User>;
 
-                    var result = await _userManager.UpdateAsync(user);
+                    IdentityResult result =
+                        await _passwordValidator.ValidateAsync(_userManager, user, model.NewPassword);
+                   
+
                     if (result.Succeeded)
                     {
+                        user.Email = model.Email;
+                        user.UserName = model.Email;
+                        user.PasswordHash = _passwordHasher.HashPassword(user, model.NewPassword);
+                        await _userManager.UpdateAsync(user);
                         return RedirectToAction("List");
                     }
                     else
