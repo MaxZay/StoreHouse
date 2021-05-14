@@ -183,3 +183,5 @@ C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Users\Edit.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Roles\List.cshtml.g.cs
 C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Create.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Roles\UserList.cshtml.g.cs
+C:\Users\maxim\Documents\6 сем\ИГИ\Laba2\Laba2\ASP_UI\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs
