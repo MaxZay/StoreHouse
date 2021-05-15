@@ -75,7 +75,7 @@ namespace ASP_UI
                 });
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=StoreHouse}/{action=List}/{id?}");
             });
         }
     }

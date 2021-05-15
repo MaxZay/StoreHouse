@@ -1,47 +1,33 @@
-﻿ @model IEnumerable<BLL.DTOs.MedicalBillsDTO>
+﻿@model IEnumerable<BLL.DTOs.MedicalBillsDTO>
+@using Microsoft.AspNetCore.Authorization
 
 @{
     ViewData["Title"] = "List";
 }
-@*<h1>Список препаратов</h1>
-<div class="row mt-5 mb-2">
-    @{ 
-        foreach(var bill in Model)
-        {
-        <div class="col-lg-4">
-            <h2>@bill.Name</h2>
-            <h4>@bill.MedicalBillsType.Type</h4>
-            <h4>@bill.Quantity</h4>
-            <p><a class="btn btn-warning" href="#">Подробнее</a></p>
-        </div>
-        }
-    }
-
-</div>*@
-<h1>List</h1>
+<h1>Препараты</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
+    @if(User.IsInRole("admin") || User.IsInRole("storeman")){
+        <a asp-action="Create" class="btn btn-primary">Добавить</a>
+     }
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @*@Html.DisplayNameFor(model => model.Name)*@
                 Название
             </th>
             <th>
-                @*@Html.DisplayNameFor(model => model.MedicalBillsType.Type)*@
                 Тип препарата
             </th>
             <th>
-                @*@Html.DisplayNameFor(model => model.Form.FormName)*@
                 Форма препарата
             </th>
         </tr>
     </thead>
     <tbody>
-       @foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -53,13 +39,13 @@
                 @Html.DisplayFor(modelItem => item.Form.FormName)
             </td>
             <td>
-                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
-                <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.Id">Edit</a>
+                @if (User.IsInRole("admin") || User.IsInRole("storekeeper") || User.IsInRole("client"))
+                 {
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Удалить</a>
+                    <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.Id">Изменить</a>
+                 }
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>

@@ -6,19 +6,19 @@
     <div asp-validation-summary="ModelOnly"></div>
     <div>
         <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
+        <input class="form-control" asp-for="Email" />
         <span asp-validation-for="Email"></span>
     </div>
     <div>
         <label asp-for="Password"></label><br />
-        <input asp-for="Password" />
+        <input class="form-control" asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
     <div>
         <label asp-for="RememberMe"></label><br />
-        <input asp-for="RememberMe" />
+        <input class="form-control" asp-for="RememberMe" />
     </div>
     <div>
-        <input type="submit" value="Войти" />
+        <input class="btn btn-lg btn-success btn-block mt-2" type="submit" value="Войти" />
     </div>
 </form>

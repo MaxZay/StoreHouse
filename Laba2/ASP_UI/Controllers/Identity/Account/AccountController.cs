@@ -38,7 +38,7 @@ namespace ASP_UI.Controllers.Identity
                 {
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("List", "MedicalBills");
+                    return RedirectToAction("List", "StoreHouse");
                 }
                 else
                 {
@@ -74,7 +74,7 @@ namespace ASP_UI.Controllers.Identity
                     }
                     else
                     {
-                        return RedirectToAction("List", "MedicalBills");
+                        return RedirectToAction("List", "StoreHouse");
                     }
                 }
                 else
@@ -91,7 +91,7 @@ namespace ASP_UI.Controllers.Identity
         {
             // удаляем аутентификационные куки
             await _signInManager.SignOutAsync();
-            return RedirectToAction("List", "MedicalBills");
+            return RedirectToAction("List", "StoreHouse");
         }
     }
 }

@@ -9,51 +9,54 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ASP_UI</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MedicalBills" asp-action="List">Препараты</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="StoreHouse" asp-action="List">Склад</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="WriteOfList" asp-action="List">Списанные препараты</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="WaitableList" asp-action="List">Список поступивших препаратов</a>
-                        </li>
-                    </ul>
-                </div>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <p>@User.Identity.Name</p>
+            <nav class="navbar navbar-expand-sm bg-success navbar-toggleable-sm navbar-light bg-success border-bottom box-shadow mb-3">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            @if (User.IsInRole("admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="MedicalBills" asp-action="List">Препараты</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="StoreHouse" asp-action="List">Склад</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="WriteOfList" asp-action="List">Списанные препараты</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="WaitableList" asp-action="List">Список поступивших препаратов</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Users" asp-action="List">Пользователи</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Roles" asp-action="List">Должности</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="text-white align-middle mr-1">@User.Identity.Name</a>
 
-                    <form method="post" asp-controller="Account" asp-action="Logout">
-                        <input type="submit" value="Выход" />
-                    </form>
-                }
-                else
-                {
-                    <a asp-controller="Account" asp-action="Login">Вход</a>
-                    <a asp-controller="Account" asp-action="Register">Регистрация</a>
-                }
-            </div>
-        </nav>
-    </header>
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <input class="bg-white text-success rounded border border-success" type="submit" value="Выход" />
+                        </form>
+                    }
+                    else
+                    {
+                        <a class="text-white mr-5" asp-controller="Account" asp-action="Login">Вход</a>
+                        <a class="text-white" asp-controller="Account" asp-action="Register">Регистрация</a>
+                    }
+                </div>
+            </nav>
+        </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

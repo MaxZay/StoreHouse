@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using ASP_UI.Models.Identiy;
 using ASP_UI.Models.Identity.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASP_UI.Controllers.Identity.Roles
 {
